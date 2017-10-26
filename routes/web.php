@@ -11,26 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//文章列表页
+Route::get('/posts', '\App\Http\Controllers\PostController@index');
+//文章详情页
+Route::get('/posts/{post}', '\App\Http\Controllers\PostController@show');
+//创建文章
+Route::get('/posts/create', '\App\Http\Controllers\PostController@create');
+Route::post('/posts', '\App\Http\Controllers\PostController@store');
 
-Route::get('user', function(){
-	return view('user');
-});
+//编辑文章
+Route::get('/posts/{post}/edit', '\App\Http\Controllers\PostController@edit');
+Route::put('/posts/{post}', '\App\Http\Controllers\PostController@update');
+//删除文章
+Route::get('/posts/delete}', '\App\Http\Controllers\PostController@delete');
 
-Route::get('user/{id}', function($id){
-	return 'user '.$id;
-})->where('id', '[0-9]+');
-
-
-Route::get('test', function(){
-	date_default_timezone_set('Asia/Shanghai');
-	$time = strtotime('tomorrow');
-	
-	$expire = $time-time();
-	var_dump(date('Y-m-d H:i:s', time()));
-	var_dump(date('Y-m-d H:i:s', $time));
-	var_dump(date('Y-m-d H:i:s', $expire));
-	
-});
