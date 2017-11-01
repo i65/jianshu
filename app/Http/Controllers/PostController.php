@@ -8,12 +8,26 @@ class PostController extends Controller
 {
     //列表
     public function index(){
-        return view('post/index');
+        $posts = [
+            [
+                'title' => 'this is a title1'
+            ],
+            [
+                'title' => 'this is a title2'
+            ],
+            [
+                'title' => 'this is a title3'
+            ],
+            [
+                'title' => 'this is a title4'
+            ]
+        ];
+        return view('post/index', compact('posts'));
     }
 
     //详情页面
     public function show(){
-        return view('post/show');
+        return view('post/show', ['title' => 'this is title', 'isShow' => false]);
    }
 
     //创建文章
