@@ -44,6 +44,7 @@ class PostController extends Controller
 
     //编辑逻辑
     public function update(Post $post){
+        // TODO...用户的权限验证
         //验证
         $this->validate(request(), [
            'title' => 'required|string|max:100|min:5',
@@ -58,8 +59,10 @@ class PostController extends Controller
     }
 
     //删除逻辑
-    public function delete(){
-
+    public function delete(Post $post){
+        // TODO...用户的权限验证
+        $post->delete();
+        return redirect('/posts');
     }
 
     //上传图片
