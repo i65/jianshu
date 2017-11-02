@@ -1,7 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2017/11/2
- * Time: 10:09
- */
+namespace App\Admin\Controllers;
+
+
+class LoginController extends Controller
+{
+    //登录展示页面
+    public function index(){
+        return view('admin.login.index');
+    }
+
+    //
+    public function login(){
+
+    }
+
+    public function logout(){
+
+    }
+}
