@@ -45,3 +45,6 @@ Route::get('/posts/{post}/delete', '\App\Http\Controllers\PostController@delete'
 
 //图片上传
 Route::post('/posts/image/upload', '\App\Http\Controllers\PostController@imageUpload');
+
+//引入后台路由
+include_once('admin.php');
