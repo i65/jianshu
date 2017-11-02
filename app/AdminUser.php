@@ -3,8 +3,14 @@
 namespace App;
 
 use App\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class AdminUser extends Model
+class AdminUser extends Authenticatable
 {
     //
+    protected $rememberTokenName = '';
+
+    public function index(){
+
+    }
 }
