@@ -10,7 +10,5 @@ class AdminUser extends Authenticatable
     //
     protected $rememberTokenName = '';
 
-    public function index(){
-
-    }
+    protected $guarded = [];
 }
