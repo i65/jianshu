@@ -10,51 +10,32 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">角色列表</h3>
                         </div>
+                        <a type="button" class="btn " href="/admin/roles/create" >增加角色</a>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <form action="/admin/users/2/role" method="POST">
-                                <input type="hidden" name="_token" value="RPPMc0lhvtynKELDZljXlz9UZI9uNc55ip1P8GCM">
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="roles[]"
-                                                   checked
-                                                   value="1">
-                                            sys-manager
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="roles[]"
-                                                   checked
-                                                   value="2">
-                                            post-manager
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="roles[]"
-                                                   checked
-                                                   value="3">
-                                            topic-manager
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="roles[]"
-                                                   checked
-                                                   value="4">
-                                            notice-manager
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">提交</button>
-                                </div>
-                            </form>
+                            <table class="table table-bordered">
+                                <tbody><tr>
+                                    <th style="width: 10px">#</th>
+                                    <th>角色名称</th>
+                                    <th>角色描述</th>
+                                    <th>操作</th>
+                                </tr>
+                                @foreach($roles as $role)
+                                <tr>
+                                    <td>{{$role->id}}</td>
+                                    <td>{{$role->name}}</td>
+                                    <td>{{$role->description}}</td>
+                                    <td>
+                                        <a type="button" class="btn" href="/admin/roles/{{$role->id}}/permission" >权限管理</a>
+                                    </td>
+                                </tr>
+                                @endforeach
 
+                                </tbody>
+                            </table>
 
                         </div>
+                        {{$roles->links()}}
                     </div>
                 </div>
             </div>
